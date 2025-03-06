@@ -1,4 +1,9 @@
 export default function Main() {
+    const ingredients = ["Mashroom", "Oregano", "Tomato"];
+
+    const ingredientsListItems = ingredients.map((ingredient, index) => {
+        return <li key={index}>{ingredient}</li>
+    })
 
     return (
         <main>
@@ -11,6 +16,10 @@ export default function Main() {
                 />
                 <button type="submit">Add ingrediant</button>
             </form>
+
+            <ul className="ingredient-list">
+                {ingredientsListItems}
+            </ul>
         </main>
     )
 }

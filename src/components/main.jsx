@@ -1,19 +1,20 @@
 import { useState } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
+import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([
-    "Poha",
+    "Flattened Rice",
     "Tomato",
     "Onion",
     "Potato",
-    "Green Chilli",
   ]);
-  const [recipeResponse, setRecipeResponse] = useState(false);
+  const [recipe, setRecipe] = useState("");
 
-  function checkResponse() {
-    setRecipeResponse(true);
+  async function getRecipe() {
+    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setRecipe(recipeMarkdown);
   }
 
   function addIngredient(formData) {
@@ -34,13 +35,10 @@ export default function Main() {
       </form>
 
       {ingredients.length ? (
-        <IngredientsList
-          ingredients={ingredients}
-          checkResponse={checkResponse}
-        />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       ) : null}
 
-      {recipeResponse ? <ClaudeRecipe /> : null}
+      {recipe ? <ClaudeRecipe recipe={recipe} /> : null}
     </main>
   );
 }

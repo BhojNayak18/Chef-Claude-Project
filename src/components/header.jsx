@@ -1,8 +1,8 @@
 export default function Header() {
-    return (
-        <header className="header">
-            <img src="./src/assets/chef-claude-icon.png" alt="Chef claude icon" />
-            <h1>Chef Claude</h1>
-        </header>
-    )
+  return (
+    <header className="header">
+      <img src="./src/assets/chef-mistral-icon.png" alt="Chef mistral icon" />
+      <h1>Chef Mistral Meals</h1>
+    </header>
+  );
 }

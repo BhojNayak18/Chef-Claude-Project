@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown";
 
-export default function ClaudeRecipe(props) {
+export default function MistralRecipe(props) {
   return (
     <section className="suggested-recipe-container">
-      <h1>Chef Claude Recommends:</h1>
+      <h1>Chef Mistral Recommends:</h1>
       <ReactMarkdown>{props.recipe}</ReactMarkdown>
     </section>
   );

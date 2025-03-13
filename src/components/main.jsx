@@ -4,12 +4,7 @@ import IngredientsList from "./IngredientsList";
 import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-  const [ingredients, setIngredients] = useState([
-    "Flattened Rice",
-    "Tomato",
-    "Onion",
-    "Potato",
-  ]);
+  const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
 
   async function getRecipe() {
